@@ -10,6 +10,8 @@ import {
   message,
   ConfigProvider,
   FloatButton,
+  Row,
+  Col,
 } from "antd";
 import {
   GiftOutlined,
@@ -31,6 +33,8 @@ const App: React.FC = () => {
   const [occasion, setOccasion] = useState("Sinh nhật");
   const [budget, setBudget] = useState("");
   const [recipient, setRecipient] = useState("");
+  const [age, setAge] = useState<string>("");
+  const [gender, setGender] = useState<string>("Tất cả");
   const [result, setResult] = useState("");
 
   const handleConsult = async () => {
@@ -41,10 +45,15 @@ const App: React.FC = () => {
     }
 
     setLoading(true);
+    // Prompt chi tiết hơn với Độ tuổi và Giới tính
     const prompt = `Hãy đóng vai một chuyên gia tư vấn quà tặng cực kỳ tinh tế và tâm lý. 
-    Dịp: ${occasion}. Đối tượng nhận: ${recipient}. Ngân sách: ${budget}.
-    Hãy gợi ý 3-5 món quà ý nghĩa, phân tích lý do dựa trên tâm lý người nhận và lời chúc đi kèm. 
-    Trình bày bằng Markdown, sử dụng icon phù hợp.`;
+      Dịp: ${occasion}. 
+      Đối tượng nhận: ${recipient}. 
+      Giới tính: ${gender}. 
+      Độ tuổi: ${age || "Không xác định"}. 
+      Ngân sách: ${budget}.
+      Hãy gợi ý 3-5 món quà ý nghĩa, phân tích lý do dựa trên tâm lý người nhận và lời chúc đi kèm. 
+      Trình bày bằng Markdown, sử dụng icon phù hợp.`;
 
     try {
       const response = await axios.post(
@@ -178,15 +187,42 @@ const App: React.FC = () => {
               </div>
 
               <div>
-                <Typography.Text strong>Bạn muốn tặng cho ai?</Typography.Text>
+                <Typography.Text strong>Thông tin người nhận:</Typography.Text>
                 <Input
-                  placeholder="VD: Bạn gái thích vẽ, Sếp nam thích trà..."
+                  placeholder="VD: Người yêu thích vẽ, Sếp thích trà..."
                   value={recipient}
                   onChange={(e) => setRecipient(e.target.value)}
                   style={{ marginTop: 8 }}
                   size="large"
                 />
               </div>
+
+              <Row gutter={16}>
+                <Col span={12}>
+                  <Typography.Text strong>Giới tính:</Typography.Text>
+                  <Select
+                    value={gender}
+                    onChange={setGender}
+                    style={{ width: "100%", marginTop: 8 }}
+                    size="large"
+                  >
+                    <Option value="Nam">Nam</Option>
+                    <Option value="Nữ">Nữ</Option>
+                    <Option value="Khác">Khác</Option>
+                    <Option value="Tất cả">Ưu tiên trung tính</Option>
+                  </Select>
+                </Col>
+                <Col span={12}>
+                  <Typography.Text strong>Độ tuổi:</Typography.Text>
+                  <Input
+                    placeholder="VD: 25, trung niên..."
+                    value={age}
+                    onChange={(e) => setAge(e.target.value)}
+                    style={{ marginTop: 8 }}
+                    size="large"
+                  />
+                </Col>
+              </Row>
 
               <div>
                 <Typography.Text strong>
