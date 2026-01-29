@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700&display=swap");
+
+:root {
+  --primary-color: #ff7875; /* Màu san hô ấm áp */
+  --bg-color: #fff9f6; /* Màu kem nhạt */
+  --text-color: #434343;
+  --accent-color: #ffbb96;
+}
+
+body {
+  margin: 0;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Card Styling */
+.cozy-card {
+  border-radius: 20px !important;
+  box-shadow: 0 8px 24px rgba(255, 120, 117, 0.1) !important;
+  border: 1px solid #ffe7e4 !important;
+  overflow: hidden;
+}
+
+/* Input & Select Styling */
+.ant-input,
+.ant-select-selector {
+  border-radius: 12px !important;
+  border-color: #ffd8d3 !important;
+  padding: 8px 12px !important;
+}
+
+.ant-input:focus,
+.ant-select-focused .ant-select-selector {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 2px rgba(255, 120, 117, 0.1) !important;
+}
+
+/* Button Styling */
+.btn-consult {
+  height: 50px !important;
+  border-radius: 15px !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  background: linear-gradient(135deg, #ff7875 0%, #ff4d4f 100%) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-consult:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 77, 79, 0.4) !important;
+}
+
+/* Markdown Result Styling */
+.markdown-content {
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  color: #ff4d4f;
+  margin-top: 20px;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.markdown-content th {
+  background-color: #fff1f0;
+  padding: 12px;
+}
+
+.markdown-content td {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 12px;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid var(--primary-color);
+  background: #fff1f0;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+}
+.markdown-content code {
+  background: #fff1f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+}
+.markdown-content pre {
+  background: #fff1f0;
+  padding: 15px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+.markdown-content a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Tùy chỉnh nút Back to Top */
+.back-to-top-btn {
+  right: 30px !important;
+  bottom: 30px !important;
+}
+
+.back-to-top-btn {
+  background-color: var(--primary-color) !important; /* Màu hồng san hô */
+  border-color: var(--primary-color) !important; /* Màu hồng san hô */
+  box-shadow: 0 4px 12px rgba(255, 120, 117, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.back-to-top-btn:hover {
+  transform: translateY(-5px);
+  background-color: #ff4d4f !important;
+}
+
+.back-to-top-btn .ant-float-btn-icon {
+  color: white !important; /* Mũi tên màu trắng */
+}
