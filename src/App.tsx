@@ -97,7 +97,7 @@ const App: React.FC = () => {
 
         <Content
           style={{
-            padding: "0 20px 40px",
+            padding: "40px 20px",
             maxWidth: "800px",
             margin: "0 auto",
             width: "100%",
