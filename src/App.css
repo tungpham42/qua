@@ -36,7 +36,9 @@ body {
 .ant-select-selector:focus,
 .ant-select:focus,
 .ant-select-selection-item:focus,
-.ant-select-focused .ant-select-selector {
+.ant-select-focused,
+.ant-select-focused .ant-select-selector,
+.ant-select-focused .ant-select-selection-item {
   border-color: var(--primary-color) !important;
   box-shadow: 0 0 0 2px rgba(255, 120, 117, 0.1) !important;
 }
